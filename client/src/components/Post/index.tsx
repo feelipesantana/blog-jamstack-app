@@ -1,16 +1,18 @@
+import { useState } from "react";
+
 
 
 interface PostProps {
     title: string;
-    image?: string;
+    image?: any;
     description: string;
 }
-export function Post({ title, description }: PostProps) {
-
+export default function Post({ title, image, description }: PostProps) {
+    let newUrlImage = 'http://localhost:1337' + image
     return (
-        <div className={`w-full h-20 border border-gray-900 text-black`}>
-            <h1 className="">Teste{title}</h1>
-            <p>{description}</p>
+        <div className="h-full">
+            <div style={{ backgroundImage: `url(${newUrlImage})` }} className={` bg-cover h-full`}></div>
+            <p>{title}</p>
         </div>
     )
 }

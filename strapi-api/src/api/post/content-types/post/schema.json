@@ -12,15 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Date": {
+    "date": {
       "type": "datetime",
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "text"
     },
     "author": {
@@ -29,15 +29,17 @@
       "target": "api::author.author",
       "inversedBy": "posts"
     },
-    "Image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
+    "image": {
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "highlight": {
+      "type": "boolean",
+      "required": true
     }
   }
 }
