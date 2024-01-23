@@ -1,21 +1,21 @@
 'use client'
+import { BlogSetting } from "@/components/BlogSettings";
 import { Header } from "@/components/Header";
+import { CreatePostModal } from "@/components/Modals/CreatePostModal";
 import Post from "@/components/Post";
 import { PostHighlight } from "@/components/Post/PostHighlight";
 import { GET_POSTS, PostQueryResponse } from "@/graphql-queries/get-posts";
+import { useModal } from "@/hook/useModal";
 import { useQuery } from "@apollo/client";
 
 
 
-
-
-
 export default function Home() {
+  const { open } = useModal()
   const { data } = useQuery<PostQueryResponse>(GET_POSTS)
 
   const highlighItems = data?.posts.data.filter(res => res.attributes.highlight === true)
   const noHighlighItems = data?.posts.data.filter(res => res.attributes.highlight === false)
-
 
   return (
 
@@ -48,37 +48,11 @@ export default function Home() {
             )
           })}
 
-          {/* {data?.posts.data.map(res => {
-
-            let newURlImage = 'http://localhost:1337' + res.attributes.image.data.attributes.url
-            if (res.attributes.highlight) {
-              return (
-                <div className="min-h-72 border border-blue-500 rounded  w-full ">
-                  <POstHighlight
-                    title={res.attributes.title}
-                    description={res.attributes.description}
-                    image={newURlImage} />
-                </div>
-              )
-
-            } else {
-              return (
-                <div className="h-52 border border-pink-500 rounded  w-full">
-                  <Post
-                    title={res.attributes.title}
-                    description={res.attributes.description}
-                    image={newURlImage}
-                  />
-                </div>
-              )
-            } */}
         </div>
 
-        {/* <Post
-          title={data.posts.data.attributes.title}
-          description={data.posts.data.attributes.title}
-          image={data.posts.data.attributes.image.data.attributes.formats} /> */}
       </main >
+      <BlogSetting />
+      {open && <CreatePostModal />}
     </div >
   );
 }
