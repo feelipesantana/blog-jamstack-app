@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { ApolloClientProvider } from "@/providers/ApolloClientProvider";
+import { Header } from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', "500", "600", "700", "800"] });
@@ -20,9 +21,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <ApolloClientProvider>
-          {children}
+          <div className="flex flex-col ">
+            <Header />
+            <main className="max-w-[990px] mx-auto  w-full h-full pt-20 flex ">
+              {children}
+            </main>
+          </div>
         </ApolloClientProvider>
-
       </body>
     </html>
   );

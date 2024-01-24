@@ -30,7 +30,7 @@ export interface PostQueryResponse {
 
 export const GET_POSTS = gql`
 
-query{
+query queryGetPost{
   posts{
     data{
       id
@@ -48,7 +48,6 @@ query{
         }
       }
     }
-   
   }
 }
 

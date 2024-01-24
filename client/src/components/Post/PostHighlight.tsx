@@ -17,7 +17,7 @@ export function PostHighlight({ image, title, description }: PostProps) {
                     scale: 1.02,
                     transition: { duration: 0.5 },
                 }}
-                src={newUrlImage} className="absolute z-0 " alt="Image" />
+                src={image} className="absolute z-0 " alt="Image" />
         </div>
     )
 }

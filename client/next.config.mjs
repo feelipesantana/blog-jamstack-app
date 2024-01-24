@@ -8,7 +8,13 @@ const nextConfig = {
                 port: '1337',
 
             },
+            {
+                protocol: 'https',
+                hostname: 'wonderful-friends-0b5c5a5de2.media.strapiapp.com',
+
+            },
         ],
+
     },
 };
 
