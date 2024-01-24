@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <ApolloClientProvider>
-          <div className="flex flex-col ">
+          <div className="flex flex-col relative">
             <Header />
             <main className="max-w-[990px] mx-auto  w-full h-full pt-20 flex ">
               {children}

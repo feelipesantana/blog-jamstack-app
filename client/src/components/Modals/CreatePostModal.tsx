@@ -10,7 +10,7 @@ export function CreatePostModal() {
             exit={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2 }}
-            className="h-full w-full bg-gray-500/70 absolute z-20 flex items-center justify-center" >
+            className="absolute w-screen h-screen bg-gray-500/70  z-40 left-0 top-0 flex items-center justify-center" >
 
             <motion.div
                 initial={{ scale: 0.9 }}

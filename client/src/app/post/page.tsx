@@ -15,13 +15,13 @@ export default function Post() {
 
     let imageUrl = data?.post.data.attributes.image.data.attributes.url
     return (
-        <div>
+        <div className="w-[700px] mx-auto">
             <h1 className="text-4xl font-bold ">{data?.post.data.attributes.title}</h1>
 
             {data && imageUrl &&
-                <Image src={imageUrl} width={700} height={700} alt="Image Post" className="mt-2" />
+                <Image src={imageUrl} width={700} height={700} alt="Image Post" className="mt-10" />
             }
-            <p>{data?.post.data.attributes.description}</p>
+            <p className="py-10 text-xl">{data?.post.data.attributes.description}</p>
         </div>
     )
 }
