@@ -1,6 +1,6 @@
 import { api } from "@/services/api"
-
-
+import assert from "assert";
+import qs from 'qs'
 export interface PostTypes {
     id: number;
     title: string;
@@ -48,8 +48,13 @@ export interface PostTypes {
   
 export async function getPageData(){
 
-    const query = `populate[session][populate][posts][populate][image][populate]=true`
-    console.log(query)
+    const query = "populate[session][populate][posts][populate][image][populate]=true";
+    const params = qs.stringify({
+        populate:['session','*']
+    })
+    
+    console.log(params)
+
     const response = await api.get<RootObject>(`${process.env.NEXT_PUBLIC_URL_API}/api/pages?${query}`)
 
     return response.data

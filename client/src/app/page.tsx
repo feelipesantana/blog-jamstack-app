@@ -16,12 +16,7 @@ import { getPageData } from "@/api/get-page-data";
 import { ContainerPosts } from "@/components/Sections/ContainerPosts";
 
 export default async function Home() {
-  // const { open } = useModal()
-  // const { data } = useQuery<PostQueryResponse>(GET_POSTS)
 
-  // const highlighItems = data?.posts.data.filter(res => res.attributes.highlight === true)
-  // const noHighlighItems = data?.posts.data.filter(res => res.attributes.highlight === false)
-  // const baseSession1 = data?.posts.data.filter(res => res.attributes.session.__typename === "")
 
   const pageData = await getPageData()
 
@@ -46,29 +41,7 @@ export default async function Home() {
 
       })}
 
-      {/* 
-      {highlighItems?.map(res => {
-        return (
-          <Link href={{ pathname: '/post', query: { id: res.id } }} className="col-span-2  rounded  w-full" key={res.id}>
-            <PostHighlight
-              title={res.attributes.title}
-              description={res.attributes.description}
-              image={res.attributes.image.data.attributes.url} />
-          </Link>
-        )
-      })}
-      {noHighlighItems?.map(res => {
-        return (
-          <Link href={{ pathname: '/post', query: { id: res.id } }} className="col-span-1 rounded  w-full " key={res.id}>
-            <Post
-              title={res.attributes.title}
-              description={res.attributes.description}
-              image={res.attributes.image.data.attributes.url}
-              id={res.id}
-            />
-          </Link>
-        )
-      })}
+      {/*
       {open && <CreatePostModal />}
       <ToastContainer position={"bottom-right"} /> */}
 

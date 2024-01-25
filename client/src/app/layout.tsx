@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { ApolloClientProvider } from "@/providers/ApolloClientProvider";
 import { Header } from "@/components/Header";
+import { QueryProvider } from "@/providers/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', "500", "600", "700", "800"] });
@@ -28,9 +29,11 @@ export default function RootLayout({
 
           <Header />
           <main className="max-w-[990px] h-full mx-auto w-full my-20">
-            <ApolloClientProvider>
-              {children}
-            </ApolloClientProvider>
+            <QueryProvider>
+              <ApolloClientProvider>
+                {children}
+              </ApolloClientProvider>
+            </QueryProvider>
           </main>
 
         </div>
