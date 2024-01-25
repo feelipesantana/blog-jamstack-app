@@ -10,7 +10,7 @@ export function ContainerPosts({ posts }: ContainerPostsProps) {
     return (
         <div className="grid grid-cols-4 gap-3 w-full h-full">
             {posts && posts.map((post) => {
-                return <Post id={post.id} title={post.title} description={post.subtitle} image={post.image.data.attributes.url} />
+                return <Post id={post.id} title={post.title} description={post.subtitle} image={post.image.data.attributes.url} key={post.id} />
             })}
         </div>
     )

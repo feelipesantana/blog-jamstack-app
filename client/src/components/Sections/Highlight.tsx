@@ -9,7 +9,7 @@ export function Highlight({ posts }: HighlightProps) {
     return (
         <div className="grid grid-cols-2 gap-3 w-full h-full">
             {posts && posts.map((post) => {
-                return <PostHighlight title={post.title} description={post.subtitle} image={post.image.data.attributes.url} />
+                return <PostHighlight title={post.title} description={post.subtitle} image={post.image.data.attributes.url} key={post.id} />
             })}
         </div>
     )
