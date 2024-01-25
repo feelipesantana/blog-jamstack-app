@@ -14,12 +14,14 @@ import { GET_POSTS, PostQueryResponse } from "@/graphql/get-posts";
 import { Highlight } from "@/components/Sections/Highlight";
 import { getPageData } from "@/api/get-page-data";
 import { ContainerPosts } from "@/components/Sections/ContainerPosts";
+import { ControlModal } from "@/components/ControlModal";
+
+export const revalidate = 10;// Revalidate data Next
 
 export default async function Home() {
-
-
   const pageData = await getPageData()
 
+  console.log(pageData)
   const findHomePage = pageData.data.find(res => res.attributes.name = "Home Page")
 
 
@@ -41,9 +43,9 @@ export default async function Home() {
 
       })}
 
-      {/*
-      {open && <CreatePostModal />}
-      <ToastContainer position={"bottom-right"} /> */}
+      <ControlModal />
+      <BlogSetting />
+      <ToastContainer position={"bottom-right"} />
 
     </div>
   );
