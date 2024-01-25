@@ -12,6 +12,9 @@ interface PostAttributes {
   title: string;
   description: string;
   highlight:boolean;
+  session:{
+    __typename:string
+  }
   image: {
     data: ImageAttributes;
   };
@@ -35,6 +38,9 @@ query queryGetPost{
     data{
       id
       attributes{
+        session{
+          __typename
+        }
         title
         description
         highlight
@@ -46,6 +52,7 @@ query queryGetPost{
             }
           }
         }
+       
       }
     }
   }

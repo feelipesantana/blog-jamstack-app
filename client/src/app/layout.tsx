@@ -13,21 +13,28 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
+
 }>) {
+
+
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <ApolloClientProvider>
-          <div className="flex flex-col relative">
-            <Header />
-            <main className="max-w-[990px] mx-auto  w-full h-full pt-20 flex ">
+
+        <div className="flex flex-col h-screen  ">
+
+          <Header />
+          <main className="max-w-[990px] h-full mx-auto w-full my-20">
+            <ApolloClientProvider>
               {children}
-            </main>
-          </div>
-        </ApolloClientProvider>
+            </ApolloClientProvider>
+          </main>
+
+        </div>
+
       </body>
     </html>
   );

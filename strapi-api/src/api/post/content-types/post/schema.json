@@ -23,12 +23,6 @@
     "description": {
       "type": "text"
     },
-    "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "posts"
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -37,9 +31,11 @@
         "images"
       ]
     },
-    "highlight": {
-      "type": "boolean",
-      "required": true
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "posts"
     }
   }
 }

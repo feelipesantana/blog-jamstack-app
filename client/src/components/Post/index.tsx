@@ -9,7 +9,7 @@ interface PostProps {
     title: string;
     image?: any;
     description: string;
-    id: string
+    id: number
 }
 export default function Post({ title, image, description, id }: PostProps) {
     const { deleteState } = useControlDelete()
@@ -35,8 +35,8 @@ export default function Post({ title, image, description, id }: PostProps) {
     }
 
     return (
-        <div className="h-full ">
-            <div style={{ backgroundImage: `url(${image})` }} className={` bg-contain bg-no-repeat w-full h-40 relative `}>
+        <div className=" ">
+            <div style={{ backgroundImage: `url(${newUrlImage})` }} className={` bg-contain bg-no-repeat w-full h-40 relative `}>
                 {deleteState &&
                     <button className="absolute top-0 right-0 bg-red-600 p-1 m-2 rounded shadow-md" type="submit" onClick={(e: any) => handleDelete(e)}> <X className="text-white" /></button>
                 }

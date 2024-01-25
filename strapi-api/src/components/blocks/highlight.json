@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_highlights",
+  "info": {
+    "displayName": "highlight",
+    "description": "",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "posts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blog.post",
+      "required": true,
+      "max": 2
+    },
+    "teste": {
+      "type": "string"
+    }
+  }
+}

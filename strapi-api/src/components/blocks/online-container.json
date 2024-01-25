@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_online_containers",
+  "info": {
+    "displayName": "online_container",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "posts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blog.post"
+    }
+  }
+}

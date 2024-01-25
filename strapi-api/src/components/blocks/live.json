@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_lives",
+  "info": {
+    "displayName": "live_container",
+    "icon": "lightbulb",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "posts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blog.post"
+    }
+  }
+}
