@@ -11,7 +11,7 @@ export function ContainerPosts({ posts }: ContainerPostsProps) {
         <div className="grid grid-cols-4 gap-3 w-full h-full">
             {posts && posts.map((post) => {
                 return (
-                    <Link href={{ pathname: '/post', query: { id: post.id } }}>
+                    <Link href={{ pathname: '/post', query: { id: post.id } }} key={post.id}>
                         <Post id={post.id} title={post.title} description={post.subtitle} image={post.image.data.attributes.url} key={post.id} />
                     </Link>
                 )
