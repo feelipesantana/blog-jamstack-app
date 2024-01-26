@@ -44,7 +44,6 @@ export default async function Home() {
       })}
 
       <ControlModal />
-      <BlogSetting />
       <ToastContainer position={"bottom-right"} />
 
     </div>

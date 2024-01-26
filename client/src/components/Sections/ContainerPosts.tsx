@@ -8,7 +8,7 @@ interface ContainerPostsProps {
 }
 export function ContainerPosts({ posts }: ContainerPostsProps) {
     return (
-        <div className="grid grid-cols-4 gap-3 w-full h-full">
+        <div className="grid grid-cols-4 gap-3 w-full h-full ">
             {posts && posts.map((post) => {
                 return (
                     <Link href={{ pathname: '/post', query: { id: post.id } }} key={post.id}>
@@ -18,6 +18,4 @@ export function ContainerPosts({ posts }: ContainerPostsProps) {
             })}
         </div>
     )
-
-
 }
