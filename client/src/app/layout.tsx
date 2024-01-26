@@ -4,7 +4,6 @@ import "./globals.css";
 import { ApolloClientProvider } from "@/providers/ApolloClientProvider";
 import { Header } from "@/components/Header";
 import { QueryProvider } from "@/providers/QueryProvider";
-
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', "500", "600", "700", "800"] });
 
@@ -19,8 +18,6 @@ export default function RootLayout({
   children: React.ReactNode;
 
 }>) {
-
-
   return (
     <html lang="en">
       <body className={poppins.className}>

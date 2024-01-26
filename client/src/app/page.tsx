@@ -19,7 +19,8 @@ import { ControlModal } from "@/components/ControlModal";
 export const revalidate = 10;// Revalidate data Next
 
 export default async function Home() {
-  const pageData = await getPageData()
+
+  const pageData = await getPageData({ query: "populate[session][populate][posts][populate][image][populate]=true" })
 
   console.log(pageData)
   const findHomePage = pageData.data.find(res => res.attributes.name = "Home Page")
@@ -31,7 +32,6 @@ export default async function Home() {
       {/*Session Highligh/Live/Online*/}
       {findHomePage?.attributes.session.map(session => {
 
-        console.log(session)
         if (session.__component === 'blocks.highlight') {
           return (
             <Highlight posts={session.posts} key={session.id} />
