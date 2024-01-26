@@ -35,18 +35,15 @@ interface Attributes {
     session: Session[];
 }
 
-interface DataObject {
+export interface DataObject {
     id: number;
     attributes: Attributes;
 }
-
 
 export interface RootObject {
     data: DataObject[];
 
 }
-  
-
 interface getPageDataProps{
     query:string
 }
