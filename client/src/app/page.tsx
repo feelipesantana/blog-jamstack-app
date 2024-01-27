@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 import Post from "@/components/Post";
 import { useModal } from "@/hook/useModal";
@@ -15,10 +16,33 @@ import { Highlight } from "@/components/Sections/Highlight";
 import { getPageData } from "@/api/get-page-data";
 import { ContainerPosts } from "@/components/Sections/ContainerPosts";
 import { ControlModal } from "@/components/ControlModal";
+import { useRouter } from "next/router";
+import { redirect } from "next/navigation";
 
 export const revalidate = 10;// Revalidate data Next
 
 export default async function Home() {
+
+  const {
+    getAccessToken,
+    getBooleanFlag,
+    getFlag,
+    getIdToken,
+    getIntegerFlag,
+    getOrganization,
+    getPermission,
+    getPermissions,
+    getStringFlag,
+    getUser,
+    getUserOrganizations,
+    isAuthenticated
+  } = getKindeServerSession();
+
+  const isAuth = await isAuthenticated()
+
+  if (!isAuth) {
+    redirect("/login")
+  }
 
   const pageData = await getPageData({ query: "populate[session][populate][posts][populate][image][populate]=true" })
 
@@ -32,13 +56,12 @@ export default async function Home() {
       {/*Session Highligh/Live/Online*/}
       {findHomePage?.attributes.session.map(session => {
 
-        if (session.__component === 'blocks.highlight') {
-          return (
-            <Highlight posts={session.posts} key={session.id} />
-          )
-        }
         return (
-          <ContainerPosts posts={session.posts} key={session.id} />
+          <div className="" key={session.id}>
+            <div>
+
+            </div>
+          </div>
         )
 
       })}

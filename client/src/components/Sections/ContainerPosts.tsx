@@ -17,5 +17,5 @@ export function ContainerPosts({ posts }: ContainerPostsProps) {
                 )
             })}
         </div>
-    )
+    )   
 }
