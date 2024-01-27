@@ -1,4 +1,6 @@
 module.exports = ({ env }) => ({
+  host: "localhost", // only used along with `strapi develop --watch-admin` command
+  port: 8000, // only used along with `strapi develop --watch-admin` command
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
   },
