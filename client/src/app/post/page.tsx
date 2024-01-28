@@ -65,7 +65,7 @@ export default function Post() {
     //     variables: { id: value }
     // })
 
-    let imageUrl = data?.image.data.attributes.url
+    let imageUrl = "http://localhost:1337" + data?.image.data.attributes.url
     return (
         <div className="w-[700px] mx-auto">
             <h1 className="text-4xl font-bold ">{data?.title}</h1>

@@ -25,7 +25,7 @@ export function Highlight({ id, title, image, description, about }: PostProps) {
                     scale: 1.02,
                     transition: { duration: 0.5 },
                 }}
-                src={image} className="absolute z-0 h-full w-full " alt="Image" />
+                src={newUrlImage} className="absolute z-0 h-full w-full  " alt="Image" />
         </div>
     )
 }
