@@ -37,17 +37,17 @@ export async function Header() {
                 }
 
             </div>
-            <div className="flex gap-2 items-center ">
+            <div className="flex gap-3 items-center ">
                 {getMoment &&
                     <div className="flex gap-1 items-center justify-center">
                         <span> Olá {user?.given_name}, </span>
                         <span>{getMoment.moment}</span>
                         <span>
                             {getMoment.icon === "SunMoon"
-                                ? <SunMoon />
+                                ? <SunMoon className="h-4 w-4 mb-4" />
                                 : getMoment.icon === "CloudSun"
                                     ? <CloudSun className="h-4 w-4 mb-4" />
-                                    : <MoonStar />
+                                    : <MoonStar className="h-4 w-4 mb-4" />
                             }
                         </span>
                     </div>

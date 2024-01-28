@@ -45,7 +45,7 @@ export default async function Home() {
   const containerPosts = findHomePage?.attributes.session.find(res => res.__component === "blocks.container_posts")
 
   return (
-    <div className={`w-full flex flex-col gap-4`}>
+    <div className={`w-full flex flex-col gap-3`}>
 
       {/*Session Highligh/Live/Online*/}
       <div className="grid grid-cols-3 gap-3 ">
