@@ -397,32 +397,6 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
 }
 
-export interface ApiPagePage extends Schema.CollectionType {
-  collectionName: 'pages';
-  info: {
-    singularName: 'page';
-    pluralName: 'pages';
-    displayName: 'Page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    session: Attribute.DynamicZone<
-      ['blocks.container_posts', 'blocks.principal_post', 'blocks.side_posts']
-    >;
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    slug: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiPostPost extends Schema.CollectionType {
   collectionName: 'posts';
   info: {
@@ -876,7 +850,6 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::header.header': ApiHeaderHeader;
-      'api::page.page': ApiPagePage;
       'api::post.post': ApiPostPost;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
