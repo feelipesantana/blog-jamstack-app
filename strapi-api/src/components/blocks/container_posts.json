@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_blocks_online_containers",
+  "collectionName": "components_blocks_container_posts",
   "info": {
-    "displayName": "online_container",
-    "icon": "star",
+    "displayName": "Container Posts",
+    "icon": "lightbulb",
     "description": ""
   },
   "options": {},

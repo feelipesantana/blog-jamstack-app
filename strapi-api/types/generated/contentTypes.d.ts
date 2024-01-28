@@ -402,22 +402,17 @@ export interface ApiPagePage extends Schema.CollectionType {
   info: {
     singularName: 'page';
     pluralName: 'pages';
-    displayName: 'page';
-    description: '';
+    displayName: 'Page';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    session: Attribute.DynamicZone<
+      ['blocks.container_posts', 'blocks.principal_post', 'blocks.side_posts']
+    >;
     name: Attribute.String & Attribute.Required & Attribute.Unique;
     slug: Attribute.String & Attribute.Unique;
-    session: Attribute.DynamicZone<
-      ['blocks.highlight', 'blocks.live', 'blocks.online-container']
-    > &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        max: 4;
-      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

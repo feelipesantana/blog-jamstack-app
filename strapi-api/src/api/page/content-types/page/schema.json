@@ -4,14 +4,21 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "page",
-    "description": ""
+    "displayName": "Page"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+    "session": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.container_posts",
+        "blocks.principal_post",
+        "blocks.side_posts"
+      ]
+    },
     "name": {
       "type": "string",
       "required": true,
@@ -19,18 +26,7 @@
     },
     "slug": {
       "type": "string",
-      "unique": true,
-      "required": false
-    },
-    "session": {
-      "type": "dynamiczone",
-      "components": [
-        "blocks.highlight",
-        "blocks.live",
-        "blocks.online-container"
-      ],
-      "required": true,
-      "max": 4
+      "unique": true
     }
   }
 }

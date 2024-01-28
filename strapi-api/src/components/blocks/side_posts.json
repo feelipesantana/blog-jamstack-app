@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_blocks_lives",
+  "collectionName": "components_blocks_side_posts",
   "info": {
-    "displayName": "live_container",
-    "icon": "lightbulb",
+    "displayName": "Side Posts",
+    "icon": "star",
     "description": ""
   },
   "options": {},

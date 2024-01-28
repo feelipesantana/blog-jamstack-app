@@ -26,6 +26,20 @@
     },
     "article": {
       "type": "richtext"
+    },
+    "about": {
+      "type": "enumeration",
+      "enum": [
+        "live",
+        "online",
+        "pokerstars",
+        "vegas",
+        "bsop",
+        "lifestyle",
+        "h2club",
+        "wsop",
+        "ggpoker"
+      ]
     }
   }
 }

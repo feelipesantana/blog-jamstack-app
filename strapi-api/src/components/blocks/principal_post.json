@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_blocks_highlights",
+  "collectionName": "components_blocks_principal_post",
   "info": {
-    "displayName": "highlight",
+    "displayName": "Principal Post",
     "description": "",
     "icon": "sun"
   },
@@ -13,9 +13,6 @@
       "component": "blog.post",
       "required": true,
       "max": 2
-    },
-    "teste": {
-      "type": "string"
     }
   }
 }

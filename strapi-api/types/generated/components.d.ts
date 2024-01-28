@@ -1,9 +1,21 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface BlocksHighlight extends Schema.Component {
-  collectionName: 'components_blocks_highlights';
+export interface BlocksContainerPosts extends Schema.Component {
+  collectionName: 'components_blocks_container_posts';
   info: {
-    displayName: 'highlight';
+    displayName: 'Container Posts';
+    icon: 'lightbulb';
+    description: '';
+  };
+  attributes: {
+    posts: Attribute.Component<'blog.post', true>;
+  };
+}
+
+export interface BlocksPrincipalPost extends Schema.Component {
+  collectionName: 'components_blocks_principal_post';
+  info: {
+    displayName: 'Principal Post';
     description: '';
     icon: 'sun';
   };
@@ -13,26 +25,13 @@ export interface BlocksHighlight extends Schema.Component {
       Attribute.SetMinMax<{
         max: 2;
       }>;
-    teste: Attribute.String;
   };
 }
 
-export interface BlocksLive extends Schema.Component {
-  collectionName: 'components_blocks_lives';
+export interface BlocksSidePosts extends Schema.Component {
+  collectionName: 'components_blocks_side_posts';
   info: {
-    displayName: 'live_container';
-    icon: 'lightbulb';
-    description: '';
-  };
-  attributes: {
-    posts: Attribute.Component<'blog.post', true>;
-  };
-}
-
-export interface BlocksOnlineContainer extends Schema.Component {
-  collectionName: 'components_blocks_online_containers';
-  info: {
-    displayName: 'online_container';
+    displayName: 'Side Posts';
     icon: 'star';
     description: '';
   };
@@ -66,15 +65,28 @@ export interface BlogPost extends Schema.Component {
     image: Attribute.Media & Attribute.Required;
     subtitle: Attribute.Text & Attribute.Required;
     article: Attribute.RichText;
+    about: Attribute.Enumeration<
+      [
+        'live',
+        'online',
+        'pokerstars',
+        'vegas',
+        'bsop',
+        'lifestyle',
+        'h2club',
+        'wsop',
+        'ggpoker'
+      ]
+    >;
   };
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'blocks.highlight': BlocksHighlight;
-      'blocks.live': BlocksLive;
-      'blocks.online-container': BlocksOnlineContainer;
+      'blocks.container_posts': BlocksContainerPosts;
+      'blocks.principal_post': BlocksPrincipalPost;
+      'blocks.side_posts': BlocksSidePosts;
       'blog.link': BlogLink;
       'blog.post': BlogPost;
     }
