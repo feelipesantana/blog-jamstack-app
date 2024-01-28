@@ -1,6 +1,7 @@
 <h1 align="center">Blog Poker Prime</h1>
 
-![image](https://github.com/feelipesantana/blog-jamstack-app/assets/130864526/4ac5cf7a-8718-4d84-b6e9-8ce83a298b29)
+![image](https://github.com/feelipesantana/blog-jamstack-app/assets/130864526/031cbbd8-fa9b-4ec4-aab1-d562ad9ddfaf)
+
 
 
 
