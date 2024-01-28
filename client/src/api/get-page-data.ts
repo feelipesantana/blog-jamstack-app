@@ -6,6 +6,7 @@ export interface PostTypes {
     title: string;
     subtitle: string;
     article: string | null; 
+    about:string;
     image:{
         data:{
             id:number

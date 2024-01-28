@@ -65,7 +65,6 @@ export default function Post() {
     //     variables: { id: value }
     // })
 
-    console.log(data)
     let imageUrl = data?.image.data.attributes.url
     return (
         <div className="w-[700px] mx-auto">

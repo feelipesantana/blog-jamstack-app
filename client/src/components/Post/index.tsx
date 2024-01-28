@@ -6,12 +6,13 @@ import { useMutation } from "@apollo/client";
 import { X } from "lucide-react";
 import { toast } from "react-toastify";
 interface PostProps {
+    id: number;
     title: string;
     image?: any;
     description: string;
-    id: number
+    about: string;
 }
-export default function Post({ title, image, description, id }: PostProps) {
+export default function Post({ id, title, about, image, description }: PostProps) {
     const { deleteState } = useControlDelete()
 
     let newUrlImage = 'http://localhost:1337' + image
@@ -33,7 +34,6 @@ export default function Post({ title, image, description, id }: PostProps) {
         }
 
     }
-
     return (
         <div className=" ">
             <div style={{ backgroundImage: `url(${image})` }} className={` bg-contain bg-no-repeat w-full h-40 relative `}>
@@ -42,7 +42,6 @@ export default function Post({ title, image, description, id }: PostProps) {
                 }
             </div>
             <p>{title}</p>
-
         </div>
     )
 }

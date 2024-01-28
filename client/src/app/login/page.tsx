@@ -7,7 +7,6 @@ export default async function Login() {
 
     const { isAuthenticated } = getKindeServerSession()
     const isAuth = await isAuthenticated()
-    console.log(isAuth)
     if (isAuth) {
         redirect("/")
     }
