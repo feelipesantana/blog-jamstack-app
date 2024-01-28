@@ -4,7 +4,8 @@ dayjs.extend(utc)
 type GetMomentDayProps = {
   moment: string;
   dateFormatted: string
-} 
+  icon: "SunMoon" | "CloudSun" | "SunStar"
+} | null
 
 export function getMomentDay():GetMomentDayProps{
   const currentTime = dayjs();
@@ -18,9 +19,16 @@ export function getMomentDay():GetMomentDayProps{
   const nightStartTime = dayjs().set('hour', 18).set('minute', 0).set('second', 0);
   const nightEndTime = dayjs().set('hour', 5).set('minute', 59).set('second', 0).add(1, 'day');
 
-  if (currentTime.isAfter(morningStartTime) && currentTime.isBefore(morningEndTime)) return {moment: "Bom dia", dateFormatted: currentTimeFormatted };
-  if (currentTime.isAfter(afternoonStartTime) && currentTime.isBefore(afternoonEndTime)) return  {moment: "Boa tarde", dateFormatted: currentTimeFormatted }
-  if (currentTime.isAfter(nightStartTime) || currentTime.isBefore(nightEndTime)) return  {moment: "Boa noite", dateFormatted: currentTimeFormatted }
+  if (currentTime.isAfter(morningStartTime) && currentTime.isBefore(morningEndTime)) {
+    return {moment: "Bom dia", icon: "SunMoon",  dateFormatted: currentTimeFormatted };
+  }
+ 
+  if (currentTime.isAfter(afternoonStartTime) && currentTime.isBefore(afternoonEndTime)) {
+    return  {moment: "Boa tarde",icon: "CloudSun", dateFormatted: currentTimeFormatted }
+  }
+  if (currentTime.isAfter(nightStartTime) || currentTime.isBefore(nightEndTime)){
+    return  {moment: "Boa noite", icon: "SunStar", dateFormatted: currentTimeFormatted }
+  } 
   
-  return {moment: " ", dateFormatted: "" }
+  return null
 }

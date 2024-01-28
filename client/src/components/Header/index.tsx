@@ -5,8 +5,8 @@ import { LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextj
 import { HeaderLink } from "./HeaderLink";
 import { getHeaderData } from "@/api/get-header-data";
 import { getMomentDay } from "@/utils/get-moment-day";
-import { MoonStar } from "lucide-react";
-import { Span } from "next/dist/trace";
+import { CloudSun, MoonStar, SunMoon } from "lucide-react";
+import { AccuracyTime } from "../AccuracyTime";
 
 
 export async function Header() {
@@ -14,47 +14,60 @@ export async function Header() {
     const auth = await isAuthenticated()
     const user = await getUser()
 
-    const getData = await getHeaderData()
+    const headerData = await getHeaderData()
     const getMoment = getMomentDay()
 
+    const logo = headerData.data.attributes.logo
+
+    const headerBgColor = headerData.data.attributes.bg_color
+    const headerTextColor = headerData.data.attributes.text_color
 
     return (
-        <div className="relative z-10 flex items-center justify-between p-6 bg-white/40 backdrop:filter backdrop:blur-lg">
+        <div style={{ backgroundColor: `${headerBgColor}b2`, color: `${headerTextColor}` }} className={` bg-white/40 relative z-10 flex items-center justify-between p-6  backdrop:filter backdrop:blur-lg`}>
             <div className="flex items-center">
                 <Link href="/">
-                    <h1 className="font-bold text-[clamp(1rem,1vw,2rem)]">Poker Prime</h1>
+                    <h1 className="font-bold text-[clamp(1rem,1vw,2rem)]">{logo}</h1>
                 </Link>
                 {auth &&
                     <ul className="flex ml-10 gap-1">
-                        {getData.data.attributes.link.map(res => {
+                        {headerData.data.attributes.link.map(res => {
                             return <HeaderLink title={res.name} url={res.url} key={res.id} />
                         })}
                     </ul>
                 }
 
             </div>
-            <div className="flex gap-10 items-center">
-                <div className="flex flex-col items-center  border-black w-52">
-                    <div className="font-semibold flex">
-                        <span>Olá {user?.given_name},{' '} </span>
+            <div className="flex gap-2 items-center ">
+                {getMoment &&
+                    <div className="flex gap-1 items-center justify-center">
+                        <span> Olá {user?.given_name}, </span>
+                        <span>{getMoment.moment}</span>
+                        <span>
+                            {getMoment.icon === "SunMoon"
+                                ? <SunMoon />
+                                : getMoment.icon === "CloudSun"
+                                    ? <CloudSun className="h-4 w-4 mb-4" />
+                                    : <MoonStar />
+                            }
+                        </span>
+                    </div>
+                }
+                <AccuracyTime />
 
-                        {getMoment.moment === "Boa noite" ? (<span className="flex">Boa noite <MoonStar className="w-4 h-4" /> </span>) : getMoment.moment}</div>
-                    <strong className="font-base text-xs"> {getMoment.dateFormatted}</strong>
-                </div>
                 {auth
-                    ? <LogoutLink><button className="">Log out</button></LogoutLink>
+                    ? <LogoutLink><button className="rounded-md p-2 transition duration-300 hover:bg-slate-300/40">Sair</button></LogoutLink>
                     : (<div className="flex gap-2 ">
                         <LoginLink className="rounded-md p-2 transition duration-300 hover:bg-slate-300/40">
-                            Sign in
+                            Entrar
                         </LoginLink>
                         <RegisterLink className="rounded-md p-2 transition duration-300 hover:bg-slate-300/40">
-                            Sign up
+                            Registrar se
                         </RegisterLink>
                     </div>
                     )
                 }
             </div>
 
-        </div>
+        </div >
     )
 }

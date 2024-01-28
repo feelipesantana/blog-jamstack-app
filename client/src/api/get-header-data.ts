@@ -13,6 +13,8 @@ interface Link {
     updatedAt: string;
     publishedAt: string;
     link: Link[];
+    bg_color:string | "white/40";
+    text_color:string | "black";
   }
   
   interface Data {
