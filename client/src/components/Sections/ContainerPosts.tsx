@@ -7,7 +7,6 @@ interface ContainerPostsProps {
     posts?: PostTypes[]
 }
 export function ContainerPosts({ posts }: ContainerPostsProps) {
-    console.log(posts)
     return (
         <div className="grid grid-cols-4 gap-3 w-full h-full ">
             {posts && posts.map((post) => {

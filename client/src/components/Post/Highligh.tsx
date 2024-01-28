@@ -13,7 +13,6 @@ interface PostProps {
 export function Highlight({ id, title, image, description, about }: PostProps) {
     let newUrlImage = 'http://localhost:1337' + image
 
-    console.log(title)
     return (
         newUrlImage &&
         <div className={` w-full h-full text-black flex  relative items-end`}>
