@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import VideoStack from '@vidstack/react/tailwind.cjs'
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -18,6 +18,13 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    VideoStack({
+      // Optimize output by specifying player selector.
+      selector: '.media-player',
+      // Change the media variants prefix.
+      prefix: 'media',
+    })
+  ],
 };
 export default config;

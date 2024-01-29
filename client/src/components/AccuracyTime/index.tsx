@@ -24,7 +24,6 @@ export function AccuracyTime() {
 
     const formattedTime = currentTime.locale("pt-br").format("DD/MM/YYYY HH:mm:ss")
 
-    console.log(formattedTime)
 
     return (
         <Popover className="relative">

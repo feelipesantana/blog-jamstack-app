@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { redirect } from "next/navigation";
 import { PrincipalPost } from "@/components/Sections/PrincipalPost";
 import { SidePost } from "@/components/Sections/SidePost";
+import { VideosChannel } from "@/components/VideosChannel";
 
 export const revalidate = 10;// Revalidate data Next
 
@@ -57,8 +58,8 @@ export default async function Home() {
         <ContainerPosts posts={containerPosts?.posts} />
       </div>
 
+      <VideosChannel />
       <ControlModal />
-      <ToastContainer position={"bottom-right"} />
 
     </div >
   );
